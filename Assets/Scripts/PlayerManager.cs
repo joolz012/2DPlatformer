@@ -21,11 +21,11 @@ public class PlayerManager : MonoBehaviour
     private Subject<Unit> onDeath = new Subject<Unit>();
     private Subject<Unit> onGameFinished = new Subject<Unit>();
 
-
     private void Awake()
     {
         Instance = this;
     }
+
     private void Start()
     {
         hp.Value = maxHealth;
@@ -35,6 +35,7 @@ public class PlayerManager : MonoBehaviour
     public void TakeDamage(int damage)
     {
         hp.Value -= damage;
+
         if (hp.Value <= 0)
         {
             hp.Value = 0;
